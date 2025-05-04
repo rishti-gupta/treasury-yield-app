@@ -14,16 +14,18 @@ This directory contains AWS CDK code (written in TypeScript) to provision and ma
   aws configure
   ```
 - [Node.js ≥ 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- AWS CDK v2 installed
-    ```bash
-    npm install -g aws-cdk 
+- [AWS CDK v2](https://docs.aws.amazon.com/cdk/v2/guide/getting-started.html) — install via:
+     ```bash
+    npm install -g aws-cdk
     ```
+- [Docker](https://www.docker.com/) — required for bundling Lambda code
+
 
 ### How to Deploy
 ```bash
 cd infrastructure
 npm install
-./dev-deploy.sh
+./dev-deploy.sh # Ensure docker is running before executing the script
 ```
 
 After deployment, the API Gateway URL will be displayed in the terminal. You can copy this into your frontend .env file.

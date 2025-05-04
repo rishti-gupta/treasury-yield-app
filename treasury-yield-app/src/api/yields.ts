@@ -12,7 +12,7 @@ class YieldsApi {
   }
 
   async getYieldsData(): Promise<YieldEntry[] | undefined> {
-    const url = `${this.baseUrl}/v1/yields`;
+    const url = `${this.baseUrl}v1/yields`;
     const response = await fetch(url, {
       method: "GET",
       headers: {

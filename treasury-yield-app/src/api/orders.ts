@@ -10,7 +10,7 @@ class OrdersApi {
     this.baseUrl = baseUrl;
   }
   async submitOrder(order: OrderRequest): Promise<void> {
-    const url = `${this.baseUrl}/v1/orders`;
+    const url = `${this.baseUrl}v1/orders`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

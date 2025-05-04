@@ -33,29 +33,45 @@ A full-stack serverless application that allows users to view treasury yield cur
 
 - [Node.js ≥ 18](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 - [AWS CLI configured](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html)
-- CDK v2 installed (`npm install -g aws-cdk`)
+- [AWS CDK v2](https://docs.aws.amazon.com/cdk/v2/guide/getting-started.html) — install via:
+     ```bash
+    npm install -g aws-cdk
+    ```
+- [Docker](https://www.docker.com/) — required for bundling Lambda code
 
 ---
 
 ### Step 1: Deploy the Backend
+From the root of the project:
 
 ```bash
-cd infrastructure
+cd infrastructure/aws
+```
+Make sure Docker is running, then execute:
+
+```bash
 ./dev-deploy.sh
+```
 
 This deploys:
 - API Gateway endpoint
 - Lambda function with route handlers
 - DynamoDB table for storing orders
-```
 
-| ✅ Note: Once deployed, the API Gateway endpoint URL will be printed in the terminal output. You’ll need this in the next step.
+| 🐳 Note: Docker is required for bundling the Lambda function. Ensure it’s running before executing the script.
+
+| 📘 After deployment, the API Gateway URL will be printed in your terminal — you’ll need it in the next step.
 
 ### Step 2: Set Up Environment Variables
-In the project root, create a .env file:
+Navigate to the frontend directory:
 
 ```bash
-VITE_API_GATEWAY_URL=https://<your-api-id>.execute-api.<region>.amazonaws.com/dev
+cd ../../treasury-yield-app
+```
+Create a .env file and add the following:
+
+```bash
+VITE_API_GATEWAY_URL=https://<your-api-id>.execute-api.<region>.amazonaws.com/dev/
 ```
 Replace `<your-api-id>` and `<region>` with the actual values printed after deployment.
 
@@ -63,9 +79,11 @@ Replace `<your-api-id>` and `<region>` with the actual values printed after depl
 ### Step 3: Start the Frontend App
 
 ```bash
-cd ../treasury-yield-app 
 npm install
 npm run dev
 ```
 
 Once started, the app will be available at: http://localhost:5173
+
+## App Demo
+[Watch App Demo](https://www.youtube.com/watch?v=mBTYkhk5AfA)
