@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.cache
+
+# production
+/build
+/dist
+
+# misc and local env files
+.DS_Store
+.env
+
+# typescript
+*.tsbuildinfo
+*.tgz
+
+# IDE
+.idea
+*.iml
+
+shared/**/*.js
+shared/**/*.d.ts
